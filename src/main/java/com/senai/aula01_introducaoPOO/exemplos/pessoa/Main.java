@@ -30,5 +30,8 @@ public class Main {
         pessoa1.comer("Hamburguer");
         pessoa2.comer("Salada");
 
+        pessoa1.falar("lines.lines.lineslines");
+        pessoa2.falar("????????");
+
     }
 }
