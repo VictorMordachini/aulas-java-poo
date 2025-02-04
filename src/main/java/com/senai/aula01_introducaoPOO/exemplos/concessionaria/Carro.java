@@ -33,7 +33,7 @@ public class Carro {
         }
 
 
-        System.out.println("O valor do " + modelo + " com a desvalorização é de R$" + String.format("%.2f",valorAtual)); //string.format "%.2f" para somente 2 casas decimais
+        System.out.println("O valor do " + modelo + " com a desvalorização é de R$" + String.format("%,3.2f", valorAtual)); //string.format "%.2f" para somente 2 casas decimais
     }
 
     @Override
