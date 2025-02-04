@@ -1,20 +1,18 @@
 package com.senai.aula01_introducaoPOO.exemplos.concessionaria;
 
-import javax.swing.plaf.PanelUI;
-
 public class Carro {
     String fabricante;
     String modelo;
     String cor;
     int ano;
-    double valor;
+    double valorInicial;
 
     public Carro(String fabricante, String modelo, String cor, int ano, double valor) {
         this.fabricante = fabricante;
         this.modelo = modelo;
         this.cor = cor;
         this.ano = ano;
-        this.valor = valor;
+        this.valorInicial = valor;
     }
 
     public void testDrive() {
@@ -25,6 +23,19 @@ public class Carro {
         System.out.println("Parabéns " + nomeCliente + " você comprou o " + modelo);
     }
 
+    //calcular valor atual do carro com uma desvalorização de 2% ao ano
+    public void desvalorizacao() {
+        int tempo = 2025 - ano;
+        double valorAtual = valorInicial;
+
+        for (int i = 0; i < tempo; i++) {
+            valorAtual -= (valorAtual * 0.02);
+        }
+
+
+        System.out.println("O valor do " + modelo + " com a desvalorização é de R$" + String.format("%.2f",valorAtual)); //string.format "%.2f" para somente 2 casas decimais
+    }
+
     @Override
     public String toString() {
         return "Carro{" +
@@ -32,7 +43,7 @@ public class Carro {
                 ", modelo='" + modelo + '\'' +
                 ", cor='" + cor + '\'' +
                 ", ano=" + ano +
-                ", valor= R$" + valor +
+                ", valor= R$" + valorInicial +
                 '}';
     }
 }

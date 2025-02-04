@@ -24,5 +24,8 @@ public class Main {
         carro1.testDrive();
         carro2.comprar("Victor");
 
+        carro1.desvalorizacao();
+        carro2.desvalorizacao();
+
     }
 }
