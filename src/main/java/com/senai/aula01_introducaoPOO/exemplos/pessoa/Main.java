@@ -4,10 +4,12 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        //Criando Objetos
+        //criando objeto pessoa com construtor simples
         Pessoa pessoa1 = new Pessoa(
                 "Victor",
                 20);
+
+        //necessário preencher lacunas separadamente
         pessoa1.endereco = new Endereco(
                 "Leandro de Sevilha",
                 369,
@@ -16,6 +18,7 @@ public class Main {
                 "SP");
         pessoa1.altura = 1.66F;
 
+        //criando objeto pessoa com construtor completo
         Pessoa pessoa2 = new Pessoa(
                 "Laura",
                 18,
