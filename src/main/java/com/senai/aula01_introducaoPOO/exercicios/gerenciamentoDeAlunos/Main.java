@@ -1,44 +1,72 @@
 package com.senai.aula01_introducaoPOO.exercicios.gerenciamentoDeAlunos;
 
+
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
 
-        Aluno aluno1 = new Aluno(
-                "Victor",
-                20,
-                10
-        );
-        Aluno aluno2 = new Aluno(
-                "Lucas",
-                18,
-                5
-        );
-        Aluno aluno3 = new Aluno(
-                "Julia",
-                19,
-                7
-        );
 
-        aluno3.atualizaNota(8);
+        int opcao;
+        int x = 0;
+        Aluno[] alunos = new Aluno[x];
+        String menu = """
+                _________________________________________________________
+                |   Escolha uma opção:                                  |
+                |       1- Exibir informações                           |
+                |       2- Cadastrar alunos                             |
+                |       3- Alterar nota de um aluno                     |
+                |       3- Sair                                         |
+                _________________________________________________________
+                """;
 
-        aluno1.exibirInformacoes();
-        aluno2.exibirInformacoes();
-        aluno3.exibirInformacoes();
+        do {
+            System.out.println(menu);
+            opcao = scanner.nextInt();
+            scanner.nextLine();
+            switch (opcao) {
+                case 1:
+                    //iterando sobre a matriz para exibir informações e verificar aprovação
+                    for (
+                            int i = 0;
+                            i < alunos.length; i++) {
+                        alunos[i].exibirInformacoes();
+                        if (alunos[i].verificarAprovacao()) {
+                            System.out.println("Aluno aprovado!!!\n");
+                        } else System.out.println("Aluno reprovado!\n");
+                    }
+                    break;
+                case 2:
+                    System.out.println("Quantos alunos você quer cadastrar?");
+                    int qtd = scanner.nextInt();
+                    scanner.nextLine();
 
-        if (aluno1.verificarAprovacao()) {
-            System.out.println("Aluno " + aluno1.nome + " aprovado!!!");
-        } else System.out.println("Aluno " + aluno1.nome + " reprovado!");
+                    Aluno[] criandoAlunos = new Aluno[qtd];
+                    String informacoes[] = {"Nome: ", "Idade: ", "Nota: "}; //cabeçalho com as informaçoes do aluno
+                    String dados[] = new String[3]; //matriz para armazenar as informações recebidas
 
-        if (aluno2.verificarAprovacao()) {
-            System.out.println("Aluno " + aluno2.nome + " aprovado!!!");
-        } else System.out.println("Aluno " + aluno2.nome + " reprovado!");
+                    for (int j = 0; j < criandoAlunos.length; j++) {
+                        System.out.println("Preencha as informações a seguir:");
+                        for (int i = 0; i < informacoes.length; i++) { //iteração para preenchimento dos dados
+                            System.out.print(informacoes[i]); //exibindo cabeçalho
+                            dados[i] = scanner.nextLine(); //armazenando respostas
+                        }
+                        criandoAlunos[j] = new Aluno(dados[0], Integer.parseInt(dados[1]), Double.parseDouble(dados[2])); //criando cada aluno
+                    }
+                    alunos = criandoAlunos;
 
-        if (aluno3.verificarAprovacao()) {
-            System.out.println("Aluno " + aluno3.nome + " aprovado!!!");
-        } else System.out.println("Aluno " + aluno3.nome + " reprovado!");
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    System.out.println("Tchau");
+                    break;
+                default:
+                    System.out.println("Opção inválida!");
+            }
+        } while (opcao != 4);
 
 
     }
-
-
 }

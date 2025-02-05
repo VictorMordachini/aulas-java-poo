@@ -12,7 +12,7 @@ public class Aluno {
     }
 
     public void exibirInformacoes() {
-        System.out.println("Nome do aluno: " + nome + "\nIdade do Aluno: " + idade + "\nNota do Aluno: " + nota + "\n");
+        System.out.println("Nome do aluno: " + nome + "\nIdade do Aluno: " + idade + "\nNota do Aluno: " + nota);
     }
 
     public void atualizaNota(int novaNota) {
