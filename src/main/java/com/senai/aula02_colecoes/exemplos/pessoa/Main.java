@@ -74,6 +74,7 @@ public class Main {
         int idade = scanner.nextInt();
         scanner.nextLine();
         listaPessoas.add(new Pessoa(nome, idade));
+        listaPessoas.forEach(System.out::println);
 
 
     }
