@@ -2,6 +2,7 @@ package com.senai.aula02_colecoes.exemplos.pessoa;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 import java.util.stream.Collectors;
 
 public class Main {
@@ -64,6 +65,16 @@ public class Main {
 
         List<Pessoa> listaFiltroNome = listaPessoas.stream().filter(ps -> ps.nome.contains("Vi")).toList(); //case sensitive
         listaFiltroNome.forEach(System.out::println);
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Preencha as informações a seguir:");
+        System.out.print("Nome: ");
+        String nome = scanner.nextLine();
+        System.out.print("Idade: ");
+        int idade = scanner.nextInt();
+        scanner.nextLine();
+        listaPessoas.add(new Pessoa(nome, idade));
+
 
     }
 
