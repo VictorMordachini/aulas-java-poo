@@ -1,6 +1,8 @@
 package com.senai.aula02_colecoes.exemplos.pessoa;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class Main {
 
@@ -21,7 +23,7 @@ public class Main {
         }
 
         matrizPessoas[0].falar("Oi!!!");
-        System.out.println(matrizPessoas[3].nome);
+        System.out.println(matrizPessoas[2].nome);
 
         ArrayList lista = new ArrayList(); //lista genérica
 
@@ -33,7 +35,7 @@ public class Main {
         Pessoa pessoa = (Pessoa) lista.get(3); //pegando
         pessoa.falar("teste");
 
-        ArrayList<Pessoa> listaPessoas = new ArrayList(); //lista de pessoas
+        ArrayList<Pessoa> listaPessoas = new ArrayList<>(); //lista de pessoas
         listaPessoas.add(pessoa2);
         listaPessoas.add(new Pessoa("Ketlyn", 16));
 
@@ -48,6 +50,21 @@ public class Main {
 
         listaPessoas.add(0, pessoa3);
         listar(listaPessoas);
+
+        System.out.println("-------------------teste-----------------------");
+
+        listaPessoas.forEach(System.out::println);
+
+        System.out.println("--------------------Teste filtro idade------------------");
+
+        List<Pessoa> listaFiltrada = listaPessoas.stream().filter(p -> p.idade >= 10).toList();
+        listaFiltrada.forEach(System.out::println);
+
+        System.out.println("-------------------Teste filtro nome----------------------");
+
+        List<Pessoa> listaFiltroNome = listaPessoas.stream().filter(ps -> ps.nome.contains("Vi")).toList(); //case sensitive
+        listaFiltroNome.forEach(System.out::println);
+
     }
 
     public static void listar(ArrayList<Pessoa> lista) {
