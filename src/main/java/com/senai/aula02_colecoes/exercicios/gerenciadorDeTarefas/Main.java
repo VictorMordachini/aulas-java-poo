@@ -50,7 +50,10 @@ public class Main {
     }
 
     public static void listarTarefas() {
-        listaDeTarefas.forEach(System.out::println);
+        System.out.println("Tarefas:");
+        for (int i = 0; i < listaDeTarefas.size(); i++) {
+            System.out.println(i + 1 + " - " + listaDeTarefas.get(i));
+        }
     }
 
     public static void adicionarTarefa() {
@@ -61,7 +64,7 @@ public class Main {
             System.out.println("\n Tarefa " + (i + 1));
             System.out.print("Digite a tarefa: ");
             String tarefa = scanner.nextLine();
-            listaDeTarefas.add(new Tarefa(tarefa, listaDeTarefas.size() + 1));
+            listaDeTarefas.add(new Tarefa(tarefa));
         }
         listarTarefas();
 
