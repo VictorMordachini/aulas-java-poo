@@ -17,8 +17,8 @@ public class Tarefa {
     @Override
     public String toString() {
         if (conclusao) {
-            return id + tarefa + "[Concluído]";
-        } else return id + tarefa + "[Pendente]";
+            return id + " - " + tarefa + " [Concluído]\n";
+        } else return id + " - " + tarefa + " [Pendente]\n";
     }
 }
 

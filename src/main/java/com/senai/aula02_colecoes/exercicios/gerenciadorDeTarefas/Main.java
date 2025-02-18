@@ -58,7 +58,7 @@ public class Main {
         int qtdTarefas = scanner.nextInt();
         scanner.nextLine();
         for (int i = 0; i < qtdTarefas; i++) {
-            System.out.println("\n Tarefa " + (i + 1) + "\n");
+            System.out.println("\n Tarefa " + (i + 1));
             System.out.print("Digite a tarefa: ");
             String tarefa = scanner.nextLine();
             listaDeTarefas.add(new Tarefa(tarefa, listaDeTarefas.size() + 1));
