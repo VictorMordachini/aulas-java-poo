@@ -10,7 +10,7 @@ public class Main {
     public static void main(String[] args) {
 
         String menu = """
-                Selecione a opção desejada:
+                \nSelecione a opção desejada:
                 1 - Adicionar nova tarefa
                 2 - Listar tarefas
                 3 - marcar tarefa como concluída
@@ -69,7 +69,7 @@ public class Main {
 
     public static void removeTarefa() {
         listarTarefas();
-        System.out.println("Qual tarefa deseja remover (número): ");
+        System.out.println("\nQual tarefa deseja remover (número): ");
         int id = scanner.nextInt();
         scanner.nextLine();
         listaDeTarefas.remove(id - 1);
@@ -78,7 +78,7 @@ public class Main {
 
     public static void concluirTarefa() {
         listarTarefas();
-        System.out.println("Escolha uma tarefa para marcar como concluída (número): ");
+        System.out.println("\nEscolha uma tarefa para marcar como concluída (número): ");
         int id = scanner.nextInt();
         scanner.nextLine();
         listaDeTarefas.get(id - 1).tarefaConcluida();
