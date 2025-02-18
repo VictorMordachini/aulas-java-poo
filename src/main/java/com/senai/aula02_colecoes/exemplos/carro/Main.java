@@ -14,7 +14,7 @@ public class Main {
 
         System.out.println("Preencha as informações a seguir: ");
         for (int i = 0; i < qtdCarros; i++) {
-            System.out.println("\nCarro" + (i + 1) + "\n");
+            System.out.println("\nCarro " + (i + 1) + "\n");
             System.out.print("Fabricante: ");
             String fabricante = scanner.nextLine();
 
