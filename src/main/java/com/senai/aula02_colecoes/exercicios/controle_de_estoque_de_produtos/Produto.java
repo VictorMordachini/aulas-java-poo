@@ -1,4 +1,4 @@
-package com.senai.aula02_colecoes.exercicios.controleDeEstoque;
+package com.senai.aula02_colecoes.exercicios.controle_de_estoque_de_produtos;
 
 public class Produto {
     String nomeProduto;

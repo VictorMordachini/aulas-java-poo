@@ -1,4 +1,4 @@
-package com.senai.aula01_introducaoPOO.exercicios.cadastroDeProduto;
+package com.senai.aula01_introducaoPOO.exercicios.cadastro_de_produtos;
 
 public class Produto {
     String nome;

@@ -1,4 +1,4 @@
-package com.senai.aula03_encapsulamento.exercicios.contaBancaria;
+package com.senai.aula03_encapsulamento.exercicios.conta_bancaria_com_operacoes_simples;
 
 public class ContaBancaria {
     private String nomeTitular;

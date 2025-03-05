@@ -1,4 +1,4 @@
-package com.senai.aula02_colecoes.exercicios.controleDeEstoque;
+package com.senai.aula02_colecoes.exercicios.controle_de_estoque_de_produtos;
 
 import java.util.ArrayList;
 import java.util.Scanner;

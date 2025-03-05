@@ -1,4 +1,4 @@
-package com.senai.aula03_encapsulamento.exercicios.produtos;
+package com.senai.aula03_encapsulamento.exercicios.cadastro_de_produto_simples;
 
 public class Produto {
 

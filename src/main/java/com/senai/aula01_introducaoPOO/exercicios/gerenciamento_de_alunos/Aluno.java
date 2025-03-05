@@ -1,4 +1,4 @@
-package com.senai.aula01_introducaoPOO.exercicios.gerenciamentoDeAlunos;
+package com.senai.aula01_introducaoPOO.exercicios.gerenciamento_de_alunos;
 
 public class Aluno {
     String nome;

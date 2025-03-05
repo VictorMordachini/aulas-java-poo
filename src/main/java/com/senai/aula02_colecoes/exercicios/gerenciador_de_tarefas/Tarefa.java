@@ -1,4 +1,4 @@
-package com.senai.aula02_colecoes.exercicios.gerenciadorDeTarefas;
+package com.senai.aula02_colecoes.exercicios.gerenciador_de_tarefas;
 
 public class Tarefa {
     String tarefa;
