@@ -4,13 +4,15 @@ public class ContaBancaria {
     private String nomeTitular;
     private double saldo;
 
-    public ContaBancaria(){
-        nomeTitular = null;
-        saldo = 0;
+    public ContaBancaria(String nomeTitular, double saldo) {
+        this.nomeTitular = nomeTitular;
+        if (saldo > 0) {
+            this.saldo = saldo;
+        } else System.out.println("Saldo inválido! Valor atribuido será de R$0,00");
     }
 
     public void depositar(double valor){
-        if (valor >= 0){
+        if (valor > 0){
             saldo += valor;
             System.out.println("Valor depositado com sucesso! Novo saldo: " + getSaldo());
         }else System.out.println("Valor inválido!");
@@ -18,7 +20,7 @@ public class ContaBancaria {
     }
 
     public void sacar(double valor){
-        if (valor <= saldo){
+        if (valor <= saldo && valor > 0){
             saldo -= valor;
             System.out.println("Valor sacado com sucesso! Novo saldo: " + getSaldo());
         }else System.out.println("Saldo insuficiente!");
@@ -32,14 +34,13 @@ public class ContaBancaria {
         return nomeTitular;
     }
 
-    public void setSaldo(double saldo) {
-        if (saldo >=0){
-            this.saldo = saldo;
-        }else System.out.println("Valor inválido!");
-
-    }
-
     public double getSaldo() {
         return saldo;
     }
+
+    public void transferir(double valor, ContaBancaria contaDestino){
+        this.sacar(valor);
+        contaDestino.depositar(valor);
+    }
+
 }
