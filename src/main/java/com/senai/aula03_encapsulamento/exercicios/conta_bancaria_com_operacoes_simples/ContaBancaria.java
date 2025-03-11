@@ -11,21 +11,6 @@ public class ContaBancaria {
         } else System.out.println("Saldo inválido! Valor atribuido será de R$0,00");
     }
 
-    public void depositar(double valor){
-        if (valor > 0){
-            saldo += valor;
-            System.out.println("Valor depositado com sucesso! Novo saldo: " + getSaldo());
-        }else System.out.println("Valor inválido!");
-
-    }
-
-    public void sacar(double valor){
-        if (valor <= saldo && valor > 0){
-            saldo -= valor;
-            System.out.println("Valor sacado com sucesso! Novo saldo: " + getSaldo());
-        }else System.out.println("Saldo insuficiente!");
-    }
-
     public void setNomeTitular(String nomeTitular) {
         this.nomeTitular = nomeTitular;
     }
@@ -38,9 +23,39 @@ public class ContaBancaria {
         return saldo;
     }
 
+    public boolean depositar(double valor){
+        if (valor > 0){
+            saldo += valor;
+            mensagemDeSucesso("Depositar", this);
+            return true;
+        }else {
+            System.out.println("Valor inválido!");
+            return false;
+        }
+
+    }
+
+    public boolean sacar(double valor){
+        if (valor <= saldo && valor > 0){
+            saldo -= valor;
+            mensagemDeSucesso("Sacar", this);
+            return true;
+        }else {
+            System.out.println("Saldo insuficiente!");
+        } return false;
+    }
+
+    public static void mensagemDeSucesso(String operacao, ContaBancaria minhaConta){
+        System.out.println(operacao+" na conta do "+ minhaConta.nomeTitular+" realizado com sucesso:");
+        System.out.println("saldo atual R$"+minhaConta.saldo);
+
+    }
+
+
     public void transferir(double valor, ContaBancaria contaDestino){
-        this.sacar(valor);
-        contaDestino.depositar(valor);
+        if (this.sacar(valor)){
+            contaDestino.depositar(valor);
+        }
     }
 
 }
