@@ -1,8 +1,8 @@
 package com.senai.aula04_heranca.exemplos.gerenciamento_de_contas_bancarias;
 
 public class ContaBancaria {
-    private String titular;
-    private double saldo;
+    protected String titular;
+    protected double saldo;
 
     public ContaBancaria(String titular, double saldo) {
         this.titular = titular;
@@ -53,6 +53,11 @@ public class ContaBancaria {
         System.out.println("saldo atual R$" + minhaConta.saldo);
 
     }
+
+    public void exibirSaldo(){
+            System.out.printf("\nTitular: %s, Saldo: R$%,.2f\n", titular , saldo);
+    }
+
 }
 
 
