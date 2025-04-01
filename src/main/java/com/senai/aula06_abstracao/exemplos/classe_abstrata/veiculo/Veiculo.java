@@ -1,7 +1,7 @@
-package com.senai.aula06_abstracao.exemplos.veiculo;
+package com.senai.aula06_abstracao.exemplos.classe_abstrata.veiculo;
 
 abstract class Veiculo {
-    protected int velocidade;
+    private int velocidade;
 
     public Veiculo() {
         this.velocidade = 0;

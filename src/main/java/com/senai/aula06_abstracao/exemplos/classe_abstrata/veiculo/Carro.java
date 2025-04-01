@@ -1,4 +1,4 @@
-package com.senai.aula06_abstracao.exemplos.veiculo;
+package com.senai.aula06_abstracao.exemplos.classe_abstrata.veiculo;
 
 public class Carro extends Veiculo{
 
