@@ -22,23 +22,21 @@ public class Main {
                             4 - Exibir Usuarios
                             5 - Ligar máquina
                             6 - Demitir Operador
-                            7 - Sair       
-                        """;
+                            7 - Sair""";
 
         int opcao = 0;
         do {
             System.out.println(menu);
             opcao = scanner.nextInt();
             scanner.nextLine();
+            System.out.println("Qual tipo de usuário? ");
+            System.out.println("1 - Operador");
+            System.out.println("2 - Supervisor");
+            int escolaTipo = scanner.nextInt();
+            scanner.nextLine();
 
             switch (opcao) {
                 case 1:
-                    System.out.println("Qual tipo de usuário? ");
-                    System.out.println("1 - Operador");
-                    System.out.println("2 - Supervisor");
-                    int escolaTipo = scanner.nextInt();
-                    scanner.nextLine();
-
                     System.out.println("Preencha os dados a seguir: ");
 
                     int id = scanner.nextInt();
@@ -48,34 +46,89 @@ public class Main {
                     if (escolaTipo == 1) {
                         String setor = scanner.nextLine();
                         Operador operador = new Operador(nome, id, setor);
-                        opController.cadastrarOperador(operador);
+                        if (opController.cadastrarOperador(operador)){
+                            System.out.println("Cadastro efetuado com sucesso!");
+                        }else System.out.println("Não foi possível cadastrar!");
 
                     } else if (escolaTipo == 2) {
                         String area = scanner.nextLine();
                         Supervisor supervisor = new Supervisor(nome, id, area);
-                        supController.cadastrarSupervisor(supervisor);
+                        if (supController.cadastrarSupervisor(supervisor)){
+                            System.out.println("Cadastro efetuado com sucesso!");
+                        }else System.out.println("Não foi possível cadastrar!");
                     }
-
                     break;
 
                 case 2:
+                    if (escolaTipo == 1){
+                        opController.listarOperadores().forEach(System.out::println);
+                    } else if (escolaTipo == 2){
+                        supController.listarSupervisores().forEach(System.out::println);
+                    }
+                    System.out.println("Escolha um usuário para deletar: ");
+                    id = scanner.nextInt();
+                    scanner.nextLine();
+
+                    if (escolaTipo == 1){
+                        if (opController.deletarOperador(id)){
+                            System.out.println("Delete efetuado com sucesso!");
+                        } else System.out.println("Não foi possível deletar");
+
+                    } else if (escolaTipo == 2){
+                        if (supController.deletarSupervisor(id)){
+                            System.out.println("Delete efetuado com sucesso!");
+                        } else System.out.println("Não foi possível deletar");
+                    }
                     break;
+
                 case 3:
+                    if (escolaTipo == 1){
+                        opController.listarOperadores().forEach(System.out::println);
+                    } else if (escolaTipo == 2){
+                        supController.listarSupervisores().forEach(System.out::println);
+                    }
+
+                    System.out.println("Escolha um usuário para validar: ");
+                    id = scanner.nextInt();
+                    scanner.nextLine();
+                    System.out.println("Atualize as seguintes informações: ");
+                    System.out.print("Nome:");
+                    nome = scanner.nextLine();
+
+                    if (escolaTipo == 1){
+                        System.out.print("Setor:");
+                        String setor = scanner.nextLine();
+                        Operador operador = new Operador(nome, id, setor);
+                        opController.atualizarOperador(operador);
+                    }
+                        else if (escolaTipo == 2) {
+                        System.out.print("Área:");
+                        String area = scanner.nextLine();
+                        Supervisor supervisor = new Supervisor(nome, id, area);
+                        supController.atualizarSupervisor(supervisor);
+                    }
+                    System.out.println("Usuário Atualizado com Sucesso!");
                     break;
 
                 case 4:
-                    opController.listarOperadores().forEach(System.out::println);
-                    supController.listarSupervisores().stream().forEach(System.out::println);
+                    if (escolaTipo == 1){
+                        opController.listarOperadores().forEach(System.out::println);
+                    } else if (escolaTipo == 2){
+                        supController.listarSupervisores().forEach(System.out::println);
+                    }
                     break;
 
                 case 5:
                     break;
+
                 case 6:
                     break;
+
                 case 7:
-                    System.out.println("Saindo do Sistema! <3<3<3<3<3<3<3<3<3<3<3<3");
+                    System.out.println("Saindo do Sistema!");
                     scanner.close();
                     break;
+
                 default:
             }
 
