@@ -38,12 +38,14 @@ public class Main {
             switch (opcao) {
                 case 1:
                     System.out.println("Preencha os dados a seguir: ");
-
+                    System.out.print("Id: ");
                     int id = scanner.nextInt();
                     scanner.nextLine();
+                    System.out.print("Nome: ");
                     String nome = scanner.nextLine();
 
                     if (escolaTipo == 1) {
+                        System.out.print("Setor:");
                         String setor = scanner.nextLine();
                         Operador operador = new Operador(nome, id, setor);
                         if (opController.cadastrarOperador(operador)){
@@ -51,6 +53,7 @@ public class Main {
                         }else System.out.println("Não foi possível cadastrar!");
 
                     } else if (escolaTipo == 2) {
+                        System.out.print("Área: ");
                         String area = scanner.nextLine();
                         Supervisor supervisor = new Supervisor(nome, id, area);
                         if (supController.cadastrarSupervisor(supervisor)){

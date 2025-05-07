@@ -15,4 +15,10 @@ public class Operador extends Usuario{
     public void setSetor(String setor) {
         this.setor = setor;
     }
+
+    @Override
+    public String toString() {
+        return String.format("Id: %d, Nome: %s, Setor: %s", super.getId(), super.getNome(), setor);
+    }
 }
+

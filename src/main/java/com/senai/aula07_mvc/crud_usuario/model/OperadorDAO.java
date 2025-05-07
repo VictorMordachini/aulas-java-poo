@@ -9,6 +9,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class OperadorDAO {
@@ -49,15 +50,27 @@ public class OperadorDAO {
     }
 
     public void atualizar(Operador operador){
-        operadores.set(operador.getId(), operador);
-        salvarJson();
+        operadores.forEach(o ->{
+            if (o.getId() == operador.getId()){
+                o.setNome(operador.getNome());
+                o.setSetor(operador.getSetor());
+                salvarJson();
+            }
+        });
 
     }
 
-    public void deletar(int id){
-        operadores.remove(id);
-        salvarJson();
-
+    public boolean deletar(int id){
+        Iterator<Operador> iterator = operadores.iterator();
+        while (iterator.hasNext()){
+            Operador o = iterator.next();
+            if (o.getId()==id){
+                iterator.remove();
+                salvarJson();
+                return true;
+            }
+        }
+        return false;
 
     }
 
