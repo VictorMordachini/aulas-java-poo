@@ -25,16 +25,20 @@ public class Main {
                             7 - Sair""";
 
         int opcao = 0;
+        int escolhaTipo = 0;
+
         do {
             System.out.println(menu);
             opcao = scanner.nextInt();
             scanner.nextLine();
-            System.out.println("Qual tipo de usuário? ");
-            System.out.println("1 - Operador");
-            System.out.println("2 - Supervisor");
-            int escolaTipo = scanner.nextInt();
-            scanner.nextLine();
 
+            if (opcao != 7) {
+                System.out.println("Qual tipo de usuário? ");
+                System.out.println("1 - Operador");
+                System.out.println("2 - Supervisor");
+                escolhaTipo = scanner.nextInt();
+                scanner.nextLine();
+            }
             switch (opcao) {
                 case 1:
                     System.out.println("Preencha os dados a seguir: ");
@@ -44,7 +48,7 @@ public class Main {
                     System.out.print("Nome: ");
                     String nome = scanner.nextLine();
 
-                    if (escolaTipo == 1) {
+                    if (escolhaTipo == 1) {
                         System.out.print("Setor:");
                         String setor = scanner.nextLine();
                         Operador operador = new Operador(nome, id, setor);
@@ -52,7 +56,7 @@ public class Main {
                             System.out.println("Cadastro efetuado com sucesso!");
                         }else System.out.println("Não foi possível cadastrar!");
 
-                    } else if (escolaTipo == 2) {
+                    } else if (escolhaTipo == 2) {
                         System.out.print("Área: ");
                         String area = scanner.nextLine();
                         Supervisor supervisor = new Supervisor(nome, id, area);
@@ -63,21 +67,21 @@ public class Main {
                     break;
 
                 case 2:
-                    if (escolaTipo == 1){
+                    if (escolhaTipo == 1){
                         opController.listarOperadores().forEach(System.out::println);
-                    } else if (escolaTipo == 2){
+                    } else if (escolhaTipo == 2){
                         supController.listarSupervisores().forEach(System.out::println);
                     }
                     System.out.println("Escolha um usuário para deletar: ");
                     id = scanner.nextInt();
                     scanner.nextLine();
 
-                    if (escolaTipo == 1){
+                    if (escolhaTipo == 1){
                         if (opController.deletarOperador(id)){
                             System.out.println("Delete efetuado com sucesso!");
                         } else System.out.println("Não foi possível deletar");
 
-                    } else if (escolaTipo == 2){
+                    } else if (escolhaTipo == 2){
                         if (supController.deletarSupervisor(id)){
                             System.out.println("Delete efetuado com sucesso!");
                         } else System.out.println("Não foi possível deletar");
@@ -85,9 +89,9 @@ public class Main {
                     break;
 
                 case 3:
-                    if (escolaTipo == 1){
+                    if (escolhaTipo == 1){
                         opController.listarOperadores().forEach(System.out::println);
-                    } else if (escolaTipo == 2){
+                    } else if (escolhaTipo == 2){
                         supController.listarSupervisores().forEach(System.out::println);
                     }
 
@@ -98,13 +102,13 @@ public class Main {
                     System.out.print("Nome:");
                     nome = scanner.nextLine();
 
-                    if (escolaTipo == 1){
+                    if (escolhaTipo == 1){
                         System.out.print("Setor:");
                         String setor = scanner.nextLine();
                         Operador operador = new Operador(nome, id, setor);
                         opController.atualizarOperador(operador);
                     }
-                        else if (escolaTipo == 2) {
+                        else if (escolhaTipo == 2) {
                         System.out.print("Área:");
                         String area = scanner.nextLine();
                         Supervisor supervisor = new Supervisor(nome, id, area);
@@ -114,9 +118,9 @@ public class Main {
                     break;
 
                 case 4:
-                    if (escolaTipo == 1){
+                    if (escolhaTipo == 1){
                         opController.listarOperadores().forEach(System.out::println);
-                    } else if (escolaTipo == 2){
+                    } else if (escolhaTipo == 2){
                         supController.listarSupervisores().forEach(System.out::println);
                     }
                     break;
