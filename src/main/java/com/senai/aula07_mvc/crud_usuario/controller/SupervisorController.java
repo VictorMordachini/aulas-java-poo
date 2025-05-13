@@ -9,8 +9,7 @@ public class SupervisorController {
     private SupervisorDAO supervisorDAO = new SupervisorDAO();
 
     public List<Supervisor> listarSupervisores(){
-        List<Supervisor> lista = List.of();
-        return lista;
+       return supervisorDAO.listar();
     }
     
     public boolean cadastrarSupervisor(Supervisor supervisor) {
