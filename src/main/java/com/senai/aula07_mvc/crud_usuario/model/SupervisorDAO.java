@@ -31,6 +31,8 @@ public class SupervisorDAO {
         salvarJson();
     }
 
+    public SupervisorDAO(){supervisores = carregar();}
+
     public void salvarJson(){
         try(FileWriter writer = new FileWriter(FILE_PATH)){
             gson.toJson(supervisores, writer);

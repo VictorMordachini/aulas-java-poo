@@ -29,6 +29,9 @@ public class Main {
             System.out.println(menu);
             opcao = scanner.nextInt();
             scanner.nextLine();
+            if (opcao == 7){
+                continue;
+            }
             System.out.println("Qual tipo de usuário? ");
             System.out.println("1 - Operador");
             System.out.println("2 - Supervisor");
