@@ -1,5 +1,7 @@
 package com.senai.aula08_projeto_mqtt_mysql_websocket.controller;
 
+
+
 import com.senai.aula08_projeto_mqtt_mysql_websocket.model.Aluno;
 import com.senai.aula08_projeto_mqtt_mysql_websocket.model.Horario;
 import com.senai.aula08_projeto_mqtt_mysql_websocket.model.Professor;

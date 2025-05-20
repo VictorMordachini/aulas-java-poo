@@ -68,6 +68,9 @@ public class AlunoDAO {
     public Optional<Aluno> buscarPorRfid(String rfid) {
         return alunos.stream().filter(a -> rfid.equals(a.getIdCartaoRfid())).findFirst();
     }
+    public Optional<Aluno> buscarPorLogin(String login) {
+        return alunos.stream().filter(a -> a.getLogin().equals(login)).findFirst();
+    }
 
     public List<Aluno> listarTodos() {
         return alunos;

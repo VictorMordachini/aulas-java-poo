@@ -6,6 +6,7 @@ import com.senai.aula08_projeto_mqtt_mysql_websocket.model.Aluno;
 import com.senai.aula08_projeto_mqtt_mysql_websocket.model.Professor;
 import com.senai.aula08_projeto_mqtt_mysql_websocket.model.dao.json.AlunoDAO;
 import com.senai.aula08_projeto_mqtt_mysql_websocket.model.dao.json.ProfessorDAO;
+import com.senai.aula08_projeto_mqtt_mysql_websocket.util.CriptografiaUtil;
 
 import java.util.List;
 
@@ -13,24 +14,24 @@ public class UsuarioController {
     private final AlunoDAO alunoDAO = new AlunoDAO();
     private final ProfessorDAO professorDAO = new ProfessorDAO();
 
-    public String cadastrarUsuario(String tipo, String nome, String dadoExtra) {
+    public String cadastrarUsuario(String tipo, String nome, String dadoExtra, String login, String senha) {
         if (tipo.equals("1")) {
-            alunoDAO.inserir(new Aluno(0, nome, dadoExtra));
+            alunoDAO.inserir(new Aluno(0, nome, dadoExtra,login, CriptografiaUtil.hash(senha)));
             return "Aluno cadastrado com sucesso.";
         } else if (tipo.equals("2")) {
-            professorDAO.inserir(new Professor(0, nome, dadoExtra));
+            professorDAO.inserir(new Professor(0, nome, dadoExtra,login,CriptografiaUtil.hash(senha)));
             return "Professor cadastrado com sucesso.";
         } else {
             return "Tipo inválido.";
         }
     }
 
-    public String atualizarUsuario(String tipo, int id, String nome, String dadoExtra) {
+    public String atualizarUsuario(String tipo, int id, String nome, String dadoExtra, String login, String senha) {
         if (tipo.equals("1")) {
-            alunoDAO.atualizar(new Aluno(id, nome, dadoExtra));
+            alunoDAO.atualizar(new Aluno(id, nome, dadoExtra,login,CriptografiaUtil.hash(senha)));
             return "Aluno atualizado.";
         } else if (tipo.equals("2")) {
-            professorDAO.atualizar(new Professor(id, nome, dadoExtra));
+            professorDAO.atualizar(new Professor(id, nome, dadoExtra,login,CriptografiaUtil.hash(senha)));
             return "Professor atualizado.";
         } else {
             return "Tipo inválido.";

@@ -1,7 +1,9 @@
 package com.senai.aula08_projeto_mqtt_mysql_websocket.mqtt;
 
+
 import com.senai.aula08_projeto_mqtt_mysql_websocket.controller.ControleDeAcessoController;
-import org.eclipse.paho.client.mqttv3.*;
+import org.eclipse.paho.client.mqttv3.MqttClient;
+import org.eclipse.paho.client.mqttv3.MqttException;
 
 public class MqttSubscriber {
     private static final String BROKER = "tcp://localhost:1883";

@@ -1,7 +1,6 @@
 package com.senai.aula08_projeto_mqtt_mysql_websocket.view;
 
 
-
 import com.senai.aula08_projeto_mqtt_mysql_websocket.controller.UsuarioController;
 import com.senai.aula08_projeto_mqtt_mysql_websocket.model.Aluno;
 import com.senai.aula08_projeto_mqtt_mysql_websocket.model.Professor;
@@ -41,21 +40,22 @@ public class UsuarioView {
     }
 
     private void cadastrar() {
-        System.out.print("Tipo (1=Aluno, 2=Professor): ");
-        String tipo = scanner.nextLine();
-        System.out.print("Nome: ");
-        String nome = scanner.nextLine();
+        String tipo = scannerPrompt("Tipo (1=Aluno, 2=Professor): ");
+        String nome = scannerPrompt("Nome: ");
+        String login = scannerPrompt("Login: ");
+        String senha = scannerPrompt("Senha: ");
         String dadoExtra = tipo.equals("1") ? scannerPrompt("ID do cartão RFID: ") : scannerPrompt("Disciplina: ");
-        System.out.println(controller.cadastrarUsuario(tipo, nome, dadoExtra));
+        System.out.println(controller.cadastrarUsuario(tipo, nome, dadoExtra,login,senha));
     }
 
     private void atualizar() {
-        System.out.print("Tipo (1=Aluno, 2=Professor): ");
-        String tipo = scanner.nextLine();
+        String tipo = scannerPrompt("Tipo (1=Aluno, 2=Professor): ");
         int id = scannerPromptInt("ID: ");
         String nome = scannerPrompt("Novo nome: ");
+        String login = scannerPrompt("Novo Login: ");
+        String senha = scannerPrompt("Nova Senha: ");
         String dadoExtra = tipo.equals("1") ? scannerPrompt("Novo RFID: ") : scannerPrompt("Nova disciplina: ");
-        System.out.println(controller.atualizarUsuario(tipo, id, nome, dadoExtra));
+        System.out.println(controller.atualizarUsuario(tipo, id, nome, dadoExtra,login,senha));
     }
 
     private void remover() {
@@ -76,10 +76,15 @@ public class UsuarioView {
         }
     }
 
-    private void atribuirRfid() {
+    public void atribuirRfid() {
         int id = scannerPromptInt("ID do aluno: ");
         String rfid = scannerPrompt("Novo RFID: ");
         System.out.println(controller.atribuirRfid(id, rfid));
+    }
+
+    public void mudarRfid(Aluno aluno) {
+        String rfid = scannerPrompt("Novo RFID: ");
+        System.out.println(controller.atribuirRfid(aluno.getId(), rfid));
     }
 
     private String scannerPrompt(String msg) {

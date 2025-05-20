@@ -2,6 +2,7 @@ package com.senai.aula08_projeto_mqtt_mysql_websocket.model.dao.mysql;
 
 
 
+
 import com.senai.aula08_projeto_mqtt_mysql_websocket.model.Horario;
 
 import java.sql.*;

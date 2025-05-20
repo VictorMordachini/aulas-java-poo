@@ -66,6 +66,10 @@ public class ProfessorDAO {
         return carregar().stream().filter(p -> p.getId() == id).findFirst();
     }
 
+    public Optional<Professor> buscarPorLogin(String login) {
+        return professores.stream().filter(a -> a.getLogin().equals(login)).findFirst();
+    }
+
     public List<Professor> listarTodos() {
         return professores;
     }
