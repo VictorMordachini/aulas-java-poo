@@ -3,7 +3,7 @@ package com.senai.aula08_projeto_mqtt_mysql_websocket.controller;
 
 
 import com.senai.aula08_projeto_mqtt_mysql_websocket.model.Horario;
-import com.senai.aula08_projeto_mqtt_mysql_websocket.model.dao.mysql.HorarioDAO;
+import com.senai.aula08_projeto_mqtt_mysql_websocket.model.dao.json.HorarioDAO;
 
 import java.time.LocalTime;
 import java.util.List;

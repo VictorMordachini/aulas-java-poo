@@ -4,8 +4,8 @@ package com.senai.aula08_projeto_mqtt_mysql_websocket.controller;
 
 import com.senai.aula08_projeto_mqtt_mysql_websocket.model.Aluno;
 import com.senai.aula08_projeto_mqtt_mysql_websocket.model.Professor;
-import com.senai.aula08_projeto_mqtt_mysql_websocket.model.dao.mysql.AlunoDAO;
-import com.senai.aula08_projeto_mqtt_mysql_websocket.model.dao.mysql.ProfessorDAO;
+import com.senai.aula08_projeto_mqtt_mysql_websocket.model.dao.json.AlunoDAO;
+import com.senai.aula08_projeto_mqtt_mysql_websocket.model.dao.json.ProfessorDAO;
 
 import java.util.List;
 

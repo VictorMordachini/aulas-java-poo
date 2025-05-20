@@ -5,7 +5,7 @@ import com.senai.aula08_projeto_mqtt_mysql_websocket.model.Horario;
 import com.senai.aula08_projeto_mqtt_mysql_websocket.model.Professor;
 import com.senai.aula08_projeto_mqtt_mysql_websocket.model.dao.json.AlunoDAO;
 import com.senai.aula08_projeto_mqtt_mysql_websocket.model.dao.json.HorarioDAO;
-import com.senai.aula08_projeto_mqtt_mysql_websocket.model.dao.mysql.ProfessorDAO;
+import com.senai.aula08_projeto_mqtt_mysql_websocket.model.dao.json.ProfessorDAO;
 import com.senai.aula08_projeto_mqtt_mysql_websocket.websocket.WebSocketSender;
 
 import java.util.Optional;
