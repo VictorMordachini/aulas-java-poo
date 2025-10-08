@@ -74,7 +74,7 @@ Além do Java puro, este repositório utiliza:
 
 1.  **Clone o repositório:**
     ```bash
-    git clone [https://github.com/seu-usuario/aulas-java-poo.git](https://github.com/seu-usuario/aulas-java-poo.git)
+    git clone [https://github.com/victormordachini/aulas-java-poo.git](https://github.com/victormordachini/aulas-java-poo.git)
     cd aulas-java-poo
     ```
 
